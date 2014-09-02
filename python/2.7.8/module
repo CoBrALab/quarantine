@@ -1,0 +1,21 @@
+#%Module1.0#####################################################################
+
+
+module-whatis "adds python v2.7.8 to your user environment" 
+
+prereq gcc
+
+# avoid conflict with other python modules
+conflict python
+
+set basedir /project/m/mchakrav/quarantine/python/2.7.8/build
+
+prepend-path PATH ${basedir}/bin
+prepend-path MANPATH ${basedir}/man
+prepend-path LD_LIBRARY_PATH ${basedir}/lib
+prepend-path LIBRARY_PATH ${basedir}/lib
+
+
+setenv PYTHONHOME ${basedir}
+set sitepkg ${basedir}/lib/python2.7/site-packages/
+append-path PYTHONPATH ${basedir}/lib/python2.7/

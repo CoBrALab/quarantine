@@ -1,0 +1,30 @@
+#%Module1.0#####################################################################
+
+module-whatis   adds minc-tools chihiro quarantine to your environment
+conflict minc-tools-chihiro
+
+# dependencies
+module load gcc 
+module load intel 
+module load gnu-parallel
+module load gotoblas 
+module load extras 
+module load python
+
+set           minc_home         /project/m/mchakrav/quarantine/minc-toolkit/1.0.01/build
+prepend-path  PATH              ${minc_home}/bin
+prepend-path  PATH              ${minc_home}/pipeline
+prepend-path  PERL5LIB          ${minc_home}/perl
+prepend-path  PERL5LIB          ${minc_home}/pipeline
+prepend-path  LD_LIBRARY_PATH   ${minc_home}/lib
+prepend-path  LD_LIBRARY_PATH   ${minc_home}/lib/InsightToolkit
+prepend-path  PYTHONPATH        ${minc_home}/python
+prepend-path  PYTHONPATH        ${minc_home}/python-extras
+prepend-path  MANPATH           ${minc_home}/man
+prepend-path  MANPATH           ${minc_home}/share/man
+
+setenv MNI_DATAPATH             ${minc_home}/share
+setenv MINC_FORCE_V2            1
+setenv MINC_COMPRESS            9
+setenv MINC_TOOLKIT_VERSION     "1.0.01-20131211"
+setenv VOLUME_CACHE_THRESHOLD   -1
