@@ -18,7 +18,7 @@ module load extras
 module load openmpi 
 module load python
 
-set           minc_home         /projects/m/mchakrav/quarantine/minc-tools/mice-chihiro/build
+set           minc_home         /project/m/mchakrav/quarantine/minc-tools/mice-chihiro/build
 prepend-path  PATH              ${minc_home}/bin
 prepend-path  PERL5LIB          ${minc_home}/perl
 prepend-path  LD_LIBRARY_PATH   ${minc_home}/lib
