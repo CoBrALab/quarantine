@@ -1,0 +1,40 @@
+CIVET (cortical thickness analysis)
+-----------------------------------
+
+The CIVET tool builds on the MINC toolkit to create a pipeline for cortical
+thickness analysis. You will need our permission and permission from the authors
+in order to use this tool.
+
+Note, to run CIVET on the SciNET GPC queue, you must not run it in 'granular'
+mode, but instead run it as a single pipeline for each of your subjects. You can
+then 8-16 of these commands in parallel on a node.  
+
+I've added a few scripts to make life using CIVET a little easier. 
+
+  - civet_rename_inputs: renames input files to meet the CIVET naming
+                         conventions. Run with the --help option for more info.
+
+  - civet_run_template:  a template script you can copy into your project and
+                         modify to meet your needs. This script takes care of
+                         generating a list of IDs needed by CIVET before it can
+                         be run.
+
+  - civet_init:          If you just want to get started quickly, run this
+                         command. It assumes you have renamed your files
+                         correnctly, and have them in a folder named ./input. 
+                         It produces a list of commands to run CIVET on each of
+                         your subjects, which you can now submit to the Scinet
+                         queue (this script will output the command to do that).
+
+  - qbatch:              Given a file that lists one command per line, this
+                         script submits batches of commands to the GPC queue for
+                         a specified walltime. You can also configure how many
+                         processes are run simultaneously from each batch on a
+                         node (by default, 8, but because of hyperthreading if
+                         you aren't using much memory, you can use up to 16). 
+
+
+References: 
+[0] http://wiki.scinethpc.ca/wiki/index.php/Installing_your_own_modules
+[1] http://www.bic.mni.mcgill.ca/ServicesSoftware/MINC
+[2] http://www.mouseimaging.ca/
