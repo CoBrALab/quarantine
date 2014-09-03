@@ -1,0 +1,8 @@
+#%Module1.0#####################################################################
+
+module-whatis   Configures the quarantine modules
+
+set     basepath         /project/m/mchakrav/quarantine
+setenv  QUARANTINE_PATH  ${basepath}
+
+module use -a ${basepath}/modules
