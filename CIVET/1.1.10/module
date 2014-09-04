@@ -2,6 +2,8 @@
 
 module-whatis   adds CIVET 1.1.10 to your environment
 
+set quarantine_path  $::env(QUARANTINE_PATH)
+
 if { [is-loaded minc-tools/mice-chihiro] } { 
   puts stderr "ERROR: the civet module must not be loaded along side the minc-tools/mice-chihiro module"
   exit 1
@@ -13,7 +15,7 @@ module load     gnu-parallel
 module load     Xlibraries
 module load     ImageMagick
 
-set basepath    /project/m/mchakrav/quarantine/CIVET/1.1.10/build
+set basepath    ${quarantine_path}/CIVET/1.1.10/build
 set mnibasepath ${basepath}/Linux-x86_64
 
 prepend-path    PATH                       ${basepath}/bin

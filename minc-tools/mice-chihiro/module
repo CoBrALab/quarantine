@@ -1,33 +1,33 @@
 #%Module1.0#####################################################################
 
 module-whatis   adds minc-tools chihiro quarantine to your environment
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
 prereq gcc 
 prereq intel 
 prereq gnu-parallel
-conflict minc-toolkit-1.0.01
-conflict civet-1.0.12
 
 module-trace on
 module-log verb stderr
 
 # dependencies
-#module load hdf5 
 module load gnuplot 
 module load gotoblas 
 module load extras 
 module load openmpi 
 module load python
 
-set           minc_home         /project/m/mchakrav/quarantine/minc-tools/mice-chihiro/build
-prepend-path  PATH              ${minc_home}/bin
-prepend-path  PERL5LIB          ${minc_home}/perl
-prepend-path  LD_LIBRARY_PATH   ${minc_home}/lib
-prepend-path  LD_LIBRARY_PATH   ${minc_home}/lib/InsightToolkit
-prepend-path  PYTHONPATH        ${minc_home}/python
-prepend-path  PYTHONPATH        ${minc_home}/python-extras
-prepend-path  MANPATH           ${minc_home}/man
-prepend-path  MANPATH           ${minc_home}/share/man
+set           basepath         ${quarantine_path}/minc-tools/mice-chihiro/build
+prepend-path  PATH             ${basepath}/bin
+prepend-path  PERL5LIB         ${basepath}/perl
+prepend-path  LD_LIBRARY_PATH  ${basepath}/lib
+prepend-path  LD_LIBRARY_PATH  ${basepath}/lib/InsightToolkit
+prepend-path  PYTHONPATH       ${basepath}/python
+prepend-path  PYTHONPATH       ${basepath}/python-extras
+prepend-path  MANPATH          ${basepath}/man
+prepend-path  MANPATH          ${basepath}/share/man
 
-setenv MINC_FORCE_V2    1
-setenv MINC_COMPRESS    9
-setenv LC_ALL           C
+setenv        MINC_FORCE_V2    1
+setenv        MINC_COMPRESS    9
+setenv        LC_ALL           C
