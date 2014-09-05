@@ -1,0 +1,27 @@
+#%Module1.0#####################################################################
+
+module-whatis   adds FSL 5.0.7 to your environment
+
+set  quarantine_path  $::env(QUARANTINE_PATH)
+
+set  basepath  ${quarantine_path}/FSL/5.0.7/build
+set  fsldir    ${basepath}/usr/share/fsl/5.0
+
+prepend-path  PATH	        ${basepath}/usr/lib/fsl/5.0
+prepend-path  LD_LIBRARY_PATH   ${basepath}/usr/lib/fsl/5.0
+
+setenv  FSLDIR               ${fsldir}
+setenv  POSSUMDIR            ${fsldir}
+setenv  FSLOUTPUTTYPE        NIFTI_GZ
+setenv  FSLMULTIFILEQUIT     TRUE
+setenv  FSLTCLSH             /usr/bin/tclsh
+setenv  FSLWISH              /usr/bin/wish
+setenv  FSLBROWSER           /etc/alternatives/x-www-browser
+setenv  FSLPARALLEL          1
+
+# Mail setup for gridengine jobs. See man qsub (-m option) for all possible
+# settings. By default no email is sent.
+setenv  FSLCLUSTER_MAILOPTS  n
+
+# default queue for job submissions
+setenv FSLCLUSTER_DEFAULT_QUEUE  comp.q

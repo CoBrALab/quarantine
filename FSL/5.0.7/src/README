@@ -1,0 +1,13 @@
+FSL 5.0.7 install instructions
+==============================
+
+Rather than compile from sources, we install the dependencies for FSL via APT,
+and then install the fsl-core code into the quarantine: 
+
+1. Install the fsl-5.0-complete dependencies, but remove (or don't install
+   fsl-5.0-core)
+
+2. Unpack the fsl-5.0-core deb into the quarantine, e.g.
+
+     dpkg -x /var/cache/apt/archives/fsl-5.0-core_5.0.7-4~nd14.04+1_amd64.deb /opt/quarantine/FSL/5.0.7/build/
+
