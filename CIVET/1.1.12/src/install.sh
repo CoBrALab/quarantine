@@ -37,11 +37,11 @@ gcc --version
 g++ --version
 cpp --version
 
-make PREFIX_PATH=$INSTALL_DIR netpbm
+make PREFIX_PATH=$INSTALL_DIR netpbm && 
+make PREFIX_PATH=$INSTALL_DIR main && 
+make PREFIX_PATH=$INSTALL_DIR civet 
 #make PREFIX_PATH=$INSTALL_DIR imagemagick
-make PREFIX_PATH=$INSTALL_DIR main
-# make PREFIX_PATH=$INSTALL_DIR visual
-make PREFIX_PATH=$INSTALL_DIR civet
+#make PREFIX_PATH=$INSTALL_DIR visual
 
 # Save Makefile and other files to rebuild later (not readable by others).
 
