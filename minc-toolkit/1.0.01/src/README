@@ -1,1 +1,33 @@
-https://github.com/BIC-MNI/minc-toolkit/archive/release-1.0.01.tar.gz
+MINC toolkit build instructions
+===============================
+
+1. Download and unpack the source:
+   
+   cd minc-toolkit
+   git checkout tags/release-1.0.01
+   git submodule update --recursive
+
+2. Install dependencies: 
+
+   sudo apt-get install build-essential g++ \
+	 cmake cmake-curses-gui \
+	 bison flex \
+	 freeglut3 freeglut3-dev \
+	 libxi6 libxi-dev libxmu6 libxmu-dev libxmu-headers
+
+3. Make a folder for compiling in: 
+  
+   mkdir build; cd build
+
+
+4. Configure
+  
+   cmake -DCMAKE_INSTALL_PREFIX="/opt/quarantine/minc-toolkit/1.0.01/build/" \
+         -DMT_BUILD_ITK_TOOLS="ON" \
+         -DMT_BUILD_SHARED_LIBS="ON" \
+         -DMT_BUILD_VISUAL_TOOLS="ON" ../
+
+  
+5. Make and install
+
+   make && make install 
