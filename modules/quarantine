@@ -2,7 +2,12 @@
 
 module-whatis   Configures the quarantine modules
 
-set     basepath         /project/m/mchakrav/quarantine
+# Indicates which computing environment the quarantine is running in. 
+# This enables certain modules to correctly load dependencies.
+# Options: cic, scinet 
+setenv  QUARANTINE_ENV   cic
+
+set     basepath         /opt/quarantine
 setenv  QUARANTINE_PATH  ${basepath}
 
 module use -a ${basepath}/modules
