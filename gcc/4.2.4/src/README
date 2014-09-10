@@ -8,3 +8,7 @@ GCC
 2. Unpack deb
 
    dpkg -x gcc-4.2_4.2.4-6_amd64.deb ../build/
+
+3. Create `gcc` symlink
+
+   ln -sr  ../build/usr/bin/gcc-4.2 ../build/usr/bin/gcc
