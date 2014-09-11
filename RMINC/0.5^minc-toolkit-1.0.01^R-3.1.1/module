@@ -1,6 +1,6 @@
 #%Module1.0#####################################################################
 
-module-whatis   adds RMINC 0.5 to your environment
+module-whatis   "adds RMINC 0.5 to your environment"
 
 set quarantine_path  $::env(QUARANTINE_PATH)
 

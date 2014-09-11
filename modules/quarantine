@@ -1,6 +1,6 @@
 #%Module1.0#####################################################################
 
-module-whatis   Configures the quarantine modules
+module-whatis   "Configures the quarantine modules"
 
 # Indicates which computing environment the quarantine is running in. 
 # This enables certain modules to correctly load dependencies.
