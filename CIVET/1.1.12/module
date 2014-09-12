@@ -1,6 +1,6 @@
 #%Module1.0#####################################################################
 
-module-whatis   adds CIVET 1.1.12 to your environment
+module-whatis   "adds CIVET 1.1.12 to your environment"
 
 set quarantine_path  $::env(QUARANTINE_PATH)
 
@@ -15,6 +15,7 @@ if { $::env(QUARANTINE_ENV) eq "scinet" } {
 set basepath     ${quarantine_path}/CIVET/1.1.12/build
 
 prepend-path     PATH                       ${basepath}/bin
+prepend-path     PATH                       ${basepath}/CIVET-1.1.12
 prepend-path     LD_LIBRARY_PATH            ${basepath}/lib
 prepend-path     MNI_DATAPATH               ${basepath}/share
 prepend-path     PERL5LIB                   ${basepath}/perl
