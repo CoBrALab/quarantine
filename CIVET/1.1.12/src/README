@@ -2,6 +2,7 @@ CIVET 1.1.12 Install Instructions
 =================================
 
 1. Obtain the CIVET source code (`civet-1.1.12-cdrom.tar`) and unpack it. 
+
 2. Place EBTKS toolkit version 1.6.30 tarball in the TGZ folder, e.g.
 
     wget --continue -O TGZ/ebtks-1.6.30.tar.gz https://github.com/BIC-MNI/EBTKS/archive/release-1.6.30.tar.gz
@@ -15,4 +16,11 @@ correctly with GCC 4.4.
   - `src/Makefile` builds the 1.6.30 version of EBTKS
 
 4. Set the INSTALL_DIR location in `src/install.sh`
+
 5. Build by running `install.sh`
+
+6. Patch location of perl executable by running: 
+
+    find /opt/quarantine/CIVET/1.1.12/build/ -type f -executable | \
+        xargs grep -l -m 1 /usr/local/bin/perl | \
+        xargs -n1 sed -i 's#/usr/local/bin/perl#/usr/bin/perl#g'
