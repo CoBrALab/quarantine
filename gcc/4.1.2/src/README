@@ -1,0 +1,36 @@
+GCC
+===
+
+Built on Lubuntu 14.04: 
+
+1. Download ubuntu gcc packages and install them into ../build: 
+
+    wget http://ubuntu.cs.utah.edu/ubuntu/pool/universe/g/gcc-4.1/gcc-4.1_4.1.2-27ubuntu1_amd64.deb
+    wget http://ubuntu.cs.utah.edu/ubuntu/pool/universe/g/gcc-4.1/gcc-4.1-base_4.1.2-27ubuntu1_amd64.deb
+    wget http://ubuntu.cs.utah.edu/ubuntu/pool/universe/g/gcc-4.1/cpp-4.1_4.1.2-27ubuntu1_amd64.deb
+    wget http://security.ubuntu.com/ubuntu/pool/main/g/gcc-4.4/libgcc1_4.4.3-4ubuntu5.1_amd64.deb
+    wget http://ubuntu.cs.utah.edu/ubuntu/pool/universe/g/gcc-4.1/libstdc++6-4.1-dev_4.1.2-27ubuntu1_amd64.deb
+    wget http://launchpadlibrarian.net/12567276/libgfortran1_4.1.2-21ubuntu1_amd64.deb
+    wget http://launchpadlibrarian.net/12567279/gfortran-4.1_4.1.2-21ubuntu1_amd64.deb
+
+    dpkg -x gcc-4.1_4.1.2-27ubuntu1_amd64.deb ../build
+    dpkg -x gcc-4.1-base_4.1.2-27ubuntu1_amd64.deb ../build
+    dpkg -x cpp-4.1_4.1.2-27ubuntu1_amd64.deb ../build
+    dpkg -x libgcc1_4.4.3-4ubuntu5.1_amd64.deb ../build
+    dpkg -x libstdc++6-4.1-dev_4.1.2-27ubuntu1_amd64.deb ../build
+    dpkg -x libgfortran1_4.1.2-21ubuntu1_amd64.deb ../build
+    dpkg -x gfortran-4.1_4.1.2-21ubuntu1_amd64.deb ../build
+
+2. Fix up links inside ../build:
+
+    ln -sr ../build/usr/bin/gcc-4.1 ../build/usr/bin/gcc
+    ln -sr ../build/usr/bin/cpp-4.1 ../build/usr/bin/cpp
+    ln -sr ../build/usr/bin/g++-4.1 ../build/usr/bin/g++
+    ln -fs ../../../../../lib/libgcc_s.so.1 ../build/usr/lib/gcc/x86_64-linux-gnu/4.1/libgcc_s.so
+    ln -sf /usr/lib/x86_64-linux-gnu/libstdc++.so.6 ../build/usr/lib/gcc/x86_64-linux-gnu/4.1/libstdc++.so
+
+3. Fix up links on the build system
+
+    sudo ln -s /lib64/ld-linux-x86-64.so.2 /lib/
+    sudo ln -s /usr/lib/x86_64-linux-gnu/libc_nonshared.a /usr/lib/libc_nonshared.a
+    sudo ln -s /lib/x86_64-linux-gnu/libc.so.6 /lib/libc.so.6
