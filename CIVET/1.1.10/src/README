@@ -1,27 +1,17 @@
 CIVET 1.1.10 Install Instructions
 =================================
 
-0. Install build dependencies: 
+1. Install build dependencies: 
   - automake
   - autoconf
   - libtool
   - libblas-dev
   - liblapack-dev
-  - libnetpbm9-dev
+  - libnetpbm10-dev
 
-1. Obtain the CIVET source code (`civet-1.1.10.tgz`) and unpack it. 
+2. Load the gcc/4.1.2 module.
 
-2. Place netpbm-10.35.87.tgz tarball in the TGZ folder, e.g.
-
-    wget --continue -O TGZ/netpbm-10.35.87.tgz  http://prdownloads.sourceforge.net/netpbm/netpbm-10.35.87.tgz
-
-This is done because CIVET 1.1.10 depends on, but doesn't build, netpbm (unlike
-CIVET 1.1.12, which does).  
-
-3. Note that following modifications have been made to build CIVET:
-
-  - `src/Makefile` builds netpbm (bits for that stolen directly from CIVET
-    1.1.12)
+3. Obtain the CIVET source code (`civet-1.1.10.tgz`) and unpack it. 
 
 4. Set the INSTALL_DIR location in `src/install.sh`
 
