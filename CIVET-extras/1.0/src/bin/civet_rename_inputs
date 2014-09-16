@@ -1,0 +1,28 @@
+#!/usr/bin/env python
+"""Renames your input files to conform to the CIVET naming conventions.
+
+The CIVET naming convention is: <prefix>_<id>_t1.mnc. The <prefix> can be any
+string, and the <id> is any unique string.
+"""
+
+import argparse
+import glob
+import sys
+import os, os.path
+
+if __name__ == '__main__':
+  parser = argparse.ArgumentParser(description=__doc__,
+          formatter_class=argparse.RawTextHelpFormatter)
+  parser.add_argument('input_dir', 
+    help='Path to the directory containing your input .mnc files')
+  parser.add_argument('prefix', 
+    help='Prefix to use when naming your files')
+  args = parser.parse_args()
+ 
+  for mnc in glob.glob(os.path.join(args.input_dir, '*.mnc')):
+    filename = os.path.basename(mnc) 
+    if filename.startswith(args.prefix) and mnc.endswith('_t1.mnc'):
+      continue
+    name, ext = os.path.splitext(filename)
+    newname = os.path.join(os.path.dirname(mnc),'{0}_{1}_t1.mnc'.format(args.prefix,name))
+    os.rename(mnc,newname)
