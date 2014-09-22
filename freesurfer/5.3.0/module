@@ -1,0 +1,19 @@
+#%Module1.0#####################################################################
+
+module-whatis   "adds freesurfer 5.3.0 to your environment"
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+
+set basepath     ${quarantine_path}/freesurfer/5.3.0/build
+
+
+prepend-path     PATH                       ${basepath}/bin
+
+setenv FSFAST_HOME ${basepath}/fsfast
+setenv FREESURFER_HOME ${basepath}
+setenv FSF_OUTPUT_FORMAT nii.gz
+setenv MNI_DIR ${basepath}/mni
+
+prepend-path MATLABPATH ${basepath}/matlab
+prepend-path MATLABPATH ${basepath}/fsfast/toolbox
