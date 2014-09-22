@@ -1,0 +1,15 @@
+#%Module1.0#####################################################################
+
+
+module-whatis "adds pyminc v0.4 to your user environment" 
+
+# avoid conflict with other python modules
+prereq anaconda/2.0.1
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+set           basepath          ${quarantine_path}/pyminc/0.4/build
+
+
+prepend-path PATH ${basepath}/bin
+prepend-path PYTHONPATH ${basepath}/lib/python2.7/site-packages
