@@ -4,19 +4,20 @@ module-whatis   adds minc-tools chihiro quarantine to your environment
 
 set quarantine_path  $::env(QUARANTINE_PATH)
 
-prereq gcc 
-prereq intel 
-prereq gnu-parallel
+if { $::env(QUARANTINE_ENV) eq "scinet" } { 
+  prereq gcc 
+  prereq intel 
+  prereq gnu-parallel
+  prereq gnuplot 
+  prereq gotoblas 
+  prereq extras 
+  prereq openmpi 
+  prereq python
+}
 
 module-trace on
 module-log verb stderr
 
-# dependencies
-module load gnuplot 
-module load gotoblas 
-module load extras 
-module load openmpi 
-module load python
 
 set           basepath         ${quarantine_path}/minc-tools/mice-chihiro/build
 prepend-path  PATH             ${basepath}/bin
