@@ -7,5 +7,5 @@ set quarantine_path  $::env(QUARANTINE_PATH)
 set basepath     ${quarantine_path}/R/3.1.1/build
 
 prepend-path     PATH                       ${basepath}/bin
-prepend-path     LD_LIBRARY_PATH            ${basepath}/lib
+prepend-path     LD_LIBRARY_PATH            ${basepath}/lib64
 prepend-path     MANPATH                    ${basepath}/share/man
