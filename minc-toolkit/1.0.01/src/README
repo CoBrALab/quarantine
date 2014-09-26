@@ -2,12 +2,10 @@ MINC toolkit build instructions
 ===============================
 
 1. Download and unpack the source:
-   
-   cd minc-toolkit
-   git checkout tags/release-1.0.01
-   git submodule update --recursive
+wget http://packages.bic.mni.mcgill.ca/minc-toolkit/minc-toolkit-1.0.01-20131211-src.tar.gz
+tar -xzf ...
 
-2. Patch the source using `minc-toolkit-enable-shared.patch`
+2. Patch the source using `minc-toolkit-enable-shared.patch` and `minc-toolkit-fix-mincresample.patch`
    
 3. Install dependencies: 
 
