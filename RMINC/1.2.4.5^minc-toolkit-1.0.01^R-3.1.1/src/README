@@ -1,0 +1,15 @@
+
+1. Get the source: 
+
+wget https://github.com/mcvaneede/RMINC/archive/v1.2.4.5.tar.gz
+
+2. Load the minc-toolkit and R modules this version will depend on, e.g. 
+
+    module load minc-toolkit/1.0.01
+    module load R/3.1.1
+
+3. Configure and build
+
+    R CMD INSTALL v1.2.4.5.tar.gz \
+        --library=/opt/quarantine/RMINC/1.2.4.5^minc-toolkit-1.0.01^R-3.1.1/build \
+        --configure-args='--with-build-path=/opt/quarantine/minc-toolkit/1.0.01/build'
