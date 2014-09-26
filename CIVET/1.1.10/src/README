@@ -8,11 +8,13 @@ CIVET 1.1.10 Install Instructions
   - libblas-dev
   - liblapack-dev
   - libnetpbm10-dev
+  - locate
 
 2. Load the gcc/4.1.2 module.
 
 3. Obtain the CIVET source code (`civet-1.1.10.tgz`) and unpack it. 
+	tar -xzf civet-1.1.10.tgz -C civet
 
-4. Set the INSTALL_DIR location in `src/install.sh`
+4. Set the INSTALL_DIR location in `src/civet/install.sh`
 
 5. Build by running `install.sh`
