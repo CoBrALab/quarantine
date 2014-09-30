@@ -5,6 +5,8 @@ module-whatis   "adds CIVET 1.1.12 to your environment"
 set quarantine_path  $::env(QUARANTINE_PATH)
 
 conflict         minc-tools
+conflict	 minc-tooklkit
+conflict	 CIVET
 
 if { $::env(QUARANTINE_ENV) eq "scinet" } { 
   module load      gnu-parallel
