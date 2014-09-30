@@ -1,7 +1,2 @@
-TGZ
-*.tar
-Linux-x86_64
-Test
-job_test
-m4
-mk_environment.pl
+*.tar.bz2
+civet

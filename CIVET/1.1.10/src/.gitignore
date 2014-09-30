@@ -1,8 +1,2 @@
-civet-1.1.10.tgz
-install.sh
-job_test
-mk_environment.pl
-extras
-Linux-x86_64
-Test
-TGZ
+*.tgz
+civet
