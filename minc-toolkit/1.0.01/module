@@ -2,6 +2,10 @@
 
 module-whatis   "adds minc-toolkit quarantine to your environment"
 
+conflict minc-toolkit
+conflict minc-tools
+conflict CIVET
+
 set quarantine_path  $::env(QUARANTINE_PATH)
 
 set           basepath          ${quarantine_path}/minc-toolkit/1.0.01/build
