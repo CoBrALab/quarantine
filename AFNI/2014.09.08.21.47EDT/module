@@ -3,6 +3,7 @@
 
 module-whatis "adds AFNI 2014.09.08.21.47EDT to your environment"
 
+conflict AFNI
 
 set quarantine_path  $::env(QUARANTINE_PATH)
 
