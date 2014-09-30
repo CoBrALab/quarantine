@@ -5,6 +5,7 @@ module-whatis "adds pyminc v0.4 to your user environment"
 
 # avoid conflict with other python modules
 prereq anaconda/2.0.1
+conflict pyminc
 
 set quarantine_path  $::env(QUARANTINE_PATH)
 
