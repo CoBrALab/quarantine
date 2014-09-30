@@ -5,6 +5,8 @@ module-whatis   "adds CIVET 1.1.10 to your environment"
 set quarantine_path  $::env(QUARANTINE_PATH)
 
 conflict         minc-tools
+conflict         minc-toolkit
+conflict	 civet
 prereq           gcc/4.1.2
 
 if { $::env(QUARANTINE_ENV) eq "scinet" } { 
