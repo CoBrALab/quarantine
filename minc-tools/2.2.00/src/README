@@ -1,0 +1,8 @@
+wget http://packages.bic.mni.mcgill.ca/tgz/minc-2.2.00.tar.gz
+tar -xzf minc-2.2.00.tar.gz
+
+make
+make
+make
+#Multiple makes are needed due to broken makefile design
+make install
