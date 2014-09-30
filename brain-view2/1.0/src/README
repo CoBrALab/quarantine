@@ -1,2 +1,59 @@
-wget http://imaging-genetics.camh.ca/data/brain-view2.tar.gz
-Extract brain-view2.tar.bz2 to build
+Dependencies:
+ - Qt version 4.x (development was done against 4.5, but seems to work on 4.4
+   and 4.3 as well).
+ - Coin 3.0. (http://coin3d.org - Coin 2.5 might also work with brain-view, but
+   this has not been tested yet).
+ - Quarter (http://coin3d.org/lib/quarter/releases/1.0.0)
+ - MINC version 2.x, bicpl, and oobicpl (http://packages.bic.mni.mcgill.ca/tgz/)
+ - boost_1.48.0 or higher (http://www.boost.org/users/download/)
+ - hdf5-1.8.6 or higher (http://www.hdfgroup.org/HDF5/release/obtain5.html)
+
+module load minc-tools
+git clone https://github.com/sghanavati/brain-view2
+apt-get install qt4-qmake libqt4-dev-bin libqt4-dev
+apt-get install libcoin80-dev libcoin60-dev
+
+Quarter-1.0.0 build is broken, do people test things?
+hash just before it does build
+wget https://bitbucket.org/Coin3D/quarter/get/3dc3433032c915c19946a8c4e2a4ccfa6036ce49.zip
+
+
+Coin3D-quarter
+CPPFLAGS=-I ./configure --prefix=/opt/quarantine/brain-view2/1.0/build/
+Add #include <stdio.h> to src/Quarter/Quarter.cpp
+make && make install
+
+oobicpl and bicpl
+wget http://packages.bic.mni.mcgill.ca/tgz/bicpl-1.4.7.tar.gz
+CPPFLAGS=-I/opt/quarantine/minc-tools/2.2.00/build/include LDFLAGS=-L/opt/quarantine/minc-tools/2.2.00/build/lib ./configure --prefix=/opt/quarantine/brain-view2/1.0/build/ --with-minc2
+make && make install
+
+wget http://packages.bic.mni.mcgill.ca/tgz/arguments-0.2.1.tar.gz
+./configure ./configure --prefix=/opt/quarantine/brain-view2/1.0/build/
+make && make install
+
+wget http://packages.bic.mni.mcgill.ca/tgz/oobicpl-0.4.8.tar.gz
+apt-get instal libpcre++-dev libpcre++0
+CPPFLAGS="-I/opt/quarantine/minc-tools/2.2.00/build/include -I/opt/quarantine/brain-view2/1.0/build/include" LDFLAGS="-L/opt/quarantine/minc-tools/2.2.00/build/lib -L/opt/quarantine/brain-view2/1.0/build/lib" ./configure --prefix=/opt/quarantine/brain-view2/1.0/build --with-minc2
+make && make install
+
+
+Minc inventor
+wget http://packages.bic.mni.mcgill.ca/tgz/bicInventor-0.3.1.tar.gz
+apt-get install libnetcdf-dev
+CPPFLAGS="-I/opt/quarantine/minc-tools/2.2.00/build/include -I/opt/quarantine/brain-view2/1.0/build/include" LDFLAGS="-L/opt/quarantine/minc-tools/2.2.00/build/lib -L/opt/quarantine/brain-view2/1.0/build/lib" ./configure --prefix=/opt/q$
+make && make install
+
+HDF5
+wget http://www.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8.6/bin/linux-x86_64/hdf5-1.8.6-linux-x86_64-shared.tar.gz
+tar -xzf
+cp -r * ../build
+
+brain-view2
+qmake MINCDIR=/opt/quarantine/minc-tools/2.2.00/build INVENTORDIR=/opt/quarantine/brain-view2/1.0 QUARTERDIR=/opt/quarantine/brain-view2/1.0/build HDF5DIR=/opt/quarantine/brain-view2/1.0/build brain-view2.pro
+make
+cp brain-view2 ../../build/bin
+
+On compute node
+cp /usr/lib/libCoin.so.60 build/lib
+cp /usr/lib/libnetcdf.so.6 ../build/lib/

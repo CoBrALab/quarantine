@@ -2,6 +2,8 @@
 
 module-whatis   "adds brain-view2 to your environment"
 
+prereq minc-tools/2.2.00
+
 set quarantine_path  $::env(QUARANTINE_PATH)
 
 set           basepath          ${quarantine_path}/brain-view2/1.0/build
