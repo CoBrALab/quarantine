@@ -5,6 +5,9 @@ Outputs a CIVET_Processing_Pipeline command line per input image.
 Expects that your images are named according to the CIVET naming convention
 (e.g. <prefix>_<id>_t1.mnc).
 
+Default arguments to CIVET_Processing_Pipeline are:
+-N3-distance 200 -lsq12 -resample-surfaces -thickness tlink 20 -no-combine-surfaces -no-VBM
+
 To override the default arguments to CIVET_Processing_Pipeline, invoke this
 script like so: 
 
@@ -15,10 +18,10 @@ CIVET_Processing_Pipeline takes. e.g.
 
   civet_make_joblist input/ prefix -- -VBM -thickness tlink 20
 
-Use this command to make job list and then submit that to a job schedular, e.g.
+Use this command to make job list and then submit that to a job scheduler, e.g.
 
   civet_make_joblist input/ prefix > job_list
-  qbatch job_list 12 8:00:00 
+  qbatch job_list 1 8:00:00 
 """
 
 import argparse
@@ -27,7 +30,7 @@ import sys
 import os, os.path
 
 if __name__ == '__main__':
-  default_civet_args = "-N3-distance 200 -lsq12 -resample-surfaces -thickness tlink 30 -combine-surface -no-VBM"
+  default_civet_args = "-N3-distance 200 -lsq12 -resample-surfaces -thickness tlink 20 -no-combine-surfaces -no-VBM"
 
   parser = argparse.ArgumentParser(description=__doc__,
           formatter_class=argparse.RawTextHelpFormatter)
