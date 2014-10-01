@@ -5,6 +5,7 @@ module-whatis   "adds CIVET extra helpful scripts to your environment"
 set quarantine_path  $::env(QUARANTINE_PATH)
 
 prereq           CIVET
+prereq           anaconda
 
 set basepath     ${quarantine_path}/CIVET-extras/1.0/build
 
