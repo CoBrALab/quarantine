@@ -18,3 +18,10 @@ CIVET 1.1.10 Install Instructions
 4. Set the INSTALL_DIR location in `src/civet/install.sh`
 
 5. Build by running `install.sh`
+
+6. Filename buffers are too short in a couple of programs, mincblur and pve, to find the variable declarations 
+   grep '.*file.*\[[0-9][0-9]' `find . -name '*.c'`
+   Edit those variables
+   For each package:
+   make && make install
+
