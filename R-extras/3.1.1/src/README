@@ -1,0 +1,10 @@
+1. Load R/3.1.1
+2. Run R, then run:
+  
+    packages = c("car","XML","rms","ggplot2","reshape2","tidyr","dplyr",
+      "lubridate","sandwich","GenABEL")
+    
+    install.packages(packages,lib="/opt/quarantine/R-extras/3.1.1/build")
+
+    # to record versions
+    download.packages(packages,destdir="/opt/quarantine/R-extras/3.1.1/src")
