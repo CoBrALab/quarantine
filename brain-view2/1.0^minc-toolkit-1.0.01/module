@@ -1,0 +1,11 @@
+#%Module1.0#####################################################################
+
+module-whatis   "adds brain-view2 to your environment"
+
+prereq minc-toolkit/1.0.01
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+set           basepath          ${quarantine_path}/brain-view2/1.0^minc-toolkit-1.0.01/build
+prepend-path  PATH              ${basepath}/bin
+prepend-path  LD_LIBRARY_PATH   ${basepath}/lib
+prepend-path  QT_PLUGIN_PATH    ${basepath}/designer
