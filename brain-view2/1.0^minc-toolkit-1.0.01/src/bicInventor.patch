@@ -1,0 +1,273 @@
+diff -crB bicInventor-0.3.1.orig/configure bicInventor-0.3.1/configure
+*** bicInventor-0.3.1.orig/configure	2014-10-04 21:32:40.265298672 -0400
+--- bicInventor-0.3.1/configure	2014-10-04 21:47:09.561276202 -0400
+***************
+*** 19599,19618 ****
+  
+    { echo "$as_me:$LINENO: checking for library volume_io2" >&5
+  echo $ECHO_N "checking for library volume_io2... $ECHO_C" >&6; }
+!   LIBS="-lvolume_io2 $LIBS"
+    cat >conftest.$ac_ext <<_ACEOF
+  /* confdefs.h.  */
+  _ACEOF
+  cat confdefs.h >>conftest.$ac_ext
+  cat >>conftest.$ac_ext <<_ACEOF
+  /* end confdefs.h.  */
+  #include <volume_io.h>
+  int
+  main ()
+  {
+! Volume vol;
+! 	 	      Real voxel = 0;
+!                       Real x = convert_voxel_to_value(vol,voxel);
+    ;
+    return 0;
+  }
+--- 19599,19619 ----
+  
+    { echo "$as_me:$LINENO: checking for library volume_io2" >&5
+  echo $ECHO_N "checking for library volume_io2... $ECHO_C" >&6; }
+!   LIBS="$LIBS"
+    cat >conftest.$ac_ext <<_ACEOF
+  /* confdefs.h.  */
+  _ACEOF
+  cat confdefs.h >>conftest.$ac_ext
+  cat >>conftest.$ac_ext <<_ACEOF
+  /* end confdefs.h.  */
++ #include <minc2.h>
+  #include <volume_io.h>
+  int
+  main ()
+  {
+! VIO_Volume vol;
+! 	 	      VIO_Real voxel = 0;
+!                       VIO_Real x = convert_voxel_to_value(vol,voxel);
+    ;
+    return 0;
+  }
+***************
+*** 19725,19738 ****
+  cat confdefs.h >>conftest.$ac_ext
+  cat >>conftest.$ac_ext <<_ACEOF
+  /* end confdefs.h.  */
+  #include <bicpl.h>
+  int
+  main ()
+  {
+! File_formats format;
+                       int n_obj;
+                       object_struct** obj_list;
+!                      Status s = input_graphics_file("",&format,&n_obj,&obj_list)
+    ;
+    return 0;
+  }
+--- 19726,19740 ----
+  cat confdefs.h >>conftest.$ac_ext
+  cat >>conftest.$ac_ext <<_ACEOF
+  /* end confdefs.h.  */
++ #include <minc2.h>
+  #include <bicpl.h>
+  int
+  main ()
+  {
+! VIO_File_formats format;
+                       int n_obj;
+                       object_struct** obj_list;
+!                      VIO_Status s = input_graphics_file("",&format,&n_obj,&obj_list)
+    ;
+    return 0;
+  }
+***************
+*** 20086,20091 ****
+--- 20088,20095 ----
+  cat confdefs.h >>conftest.$ac_ext
+  cat >>conftest.$ac_ext <<_ACEOF
+  /* end confdefs.h.  */
++ #include <minc.h>
++ #include <minc2.h>
+  #include <mniVolume.h>
+  int
+  main ()
+diff -crB bicInventor-0.3.1.orig/lib/bicInventor/MincVolume.h bicInventor-0.3.1/lib/bicInventor/MincVolume.h
+*** bicInventor-0.3.1.orig/lib/bicInventor/MincVolume.h	2014-10-04 21:32:40.493298666 -0400
+--- bicInventor-0.3.1/lib/bicInventor/MincVolume.h	2014-10-04 22:02:01.537253146 -0400
+***************
+*** 3,8 ****
+--- 3,10 ----
+  
+  #include <Inventor/nodes/SoTexture2.h>
+  
++ #include <minc.h>
++ #include <minc2.h>
+  #include <mniVolume.h>
+  
+  class inventorMincVolume : public mniVolume {
+diff -crB bicInventor-0.3.1.orig/lib/bicInventor/object.cc bicInventor-0.3.1/lib/bicInventor/object.cc
+*** bicInventor-0.3.1.orig/lib/bicInventor/object.cc	2014-10-04 21:32:40.485298666 -0400
+--- bicInventor-0.3.1/lib/bicInventor/object.cc	2014-10-04 21:58:09.445259145 -0400
+***************
+*** 42,48 ****
+  static SoBaseColor* 
+  add_color_nodes( SoGroup* root, 
+  		 Colour_flags bic_colour_flag,
+! 		 Colour bic_colour )
+  {
+      SoMaterialBinding* mat_binding = new SoMaterialBinding;
+      SoBaseColor* base_color = new SoBaseColor;
+--- 42,48 ----
+  static SoBaseColor* 
+  add_color_nodes( SoGroup* root, 
+  		 Colour_flags bic_colour_flag,
+! 		 VIO_Colour bic_colour )
+  {
+      SoMaterialBinding* mat_binding = new SoMaterialBinding;
+      SoBaseColor* base_color = new SoBaseColor;
+***************
+*** 176,182 ****
+      
+      // use default surface properties - should eventually translate them
+      // from the inventor file.
+!     Surfprop spr;
+      Surfprop_a(spr) = 0.3f;
+      Surfprop_d(spr) = 0.6f;
+      Surfprop_s(spr) = 0.6f;
+--- 176,182 ----
+      
+      // use default surface properties - should eventually translate them
+      // from the inventor file.
+!     VIO_Surfprop spr;
+      Surfprop_a(spr) = 0.3f;
+      Surfprop_d(spr) = 0.6f;
+      Surfprop_s(spr) = 0.6f;
+***************
+*** 184,190 ****
+      Surfprop_t(spr) = 1.0f;
+      initialize_polygons( polygons, WHITE, &spr );
+      
+!     Point point;
+      SoCoordinate3 *geomCoordinates;
+      SoIndexedFaceSet *faceSet;
+  
+--- 184,190 ----
+      Surfprop_t(spr) = 1.0f;
+      initialize_polygons( polygons, WHITE, &spr );
+      
+!     VIO_Point point;
+      SoCoordinate3 *geomCoordinates;
+      SoIndexedFaceSet *faceSet;
+  
+***************
+*** 222,228 ****
+  
+      // add each point's coordinates.
+      polygons->n_points = geomCoordinates->point.getNum();
+!     polygons->points = new Point[polygons->n_points];
+      for (int v = 0; v < geomCoordinates->point.getNum(); ++v) {
+  
+  	/*
+--- 222,228 ----
+  
+      // add each point's coordinates.
+      polygons->n_points = geomCoordinates->point.getNum();
+!     polygons->points = new VIO_Point[polygons->n_points];
+      for (int v = 0; v < geomCoordinates->point.getNum(); ++v) {
+  
+  	/*
+***************
+*** 279,285 ****
+  
+      std::cout << "Number of faces: " << num_faces << std::endl;
+  
+!     polygons->normals = new Vector[polygons->n_points];
+      compute_polygon_normals( polygons );
+      return( object );
+  }
+--- 279,285 ----
+  
+      std::cout << "Number of faces: " << num_faces << std::endl;
+  
+!     polygons->normals = new VIO_Vector[polygons->n_points];
+      compute_polygon_normals( polygons );
+      return( object );
+  }
+***************
+*** 375,381 ****
+  	    int j = (col == q.n ? 0 : col);
+  	    // Compute index using IJ because there is no other way
+  	    // to get the normal vector from a quadmesh.
+! 	    int index = IJ(i,j,q.n);
+  
+  	    coord->point.set1Value( v, Point_x(q.points[index]), 
+  				       Point_y(q.points[index]), 
+--- 375,381 ----
+  	    int j = (col == q.n ? 0 : col);
+  	    // Compute index using IJ because there is no other way
+  	    // to get the normal vector from a quadmesh.
+! 	    int index = VIO_IJ(i,j,q.n);
+  
+  	    coord->point.set1Value( v, Point_x(q.points[index]), 
+  				       Point_y(q.points[index]), 
+***************
+*** 426,438 ****
+  {
+      SoSeparator* root = new SoSeparator;
+  
+!     File_formats format;
+      int num_objects;
+      object_struct** object_list;
+  
+      // FIXME: fix bicpl for constness on these damn strings!!!
+      if ( input_graphics_file( (char*)filename,
+! 			      &format, &num_objects, &object_list ) != OK ) 
+      {
+  	return 0;
+      }
+--- 426,438 ----
+  {
+      SoSeparator* root = new SoSeparator;
+  
+!     VIO_File_formats format;
+      int num_objects;
+      object_struct** object_list;
+  
+      // FIXME: fix bicpl for constness on these damn strings!!!
+      if ( input_graphics_file( (char*)filename,
+! 			      &format, &num_objects, &object_list ) != VIO_OK ) 
+      {
+  	return 0;
+      }
+diff -crB bicInventor-0.3.1.orig/lib/bicInventor/texture.cc bicInventor-0.3.1/lib/bicInventor/texture.cc
+*** bicInventor-0.3.1.orig/lib/bicInventor/texture.cc	2014-10-04 21:32:40.473298666 -0400
+--- bicInventor-0.3.1/lib/bicInventor/texture.cc	2014-10-04 21:52:28.925267947 -0400
+***************
+*** 49,55 ****
+      unsigned char* pixels = new unsigned char[3*height*width];
+      int i = 0;
+      for( int y = 0; y < height; ++y ) {
+! 	Colour col = get_colour_code( &ccd, double(y) / double(height-1) );
+  	int r = get_Colour_r(col);
+  	int g = get_Colour_g(col);
+  	int b = get_Colour_b(col);
+--- 49,55 ----
+      unsigned char* pixels = new unsigned char[3*height*width];
+      int i = 0;
+      for( int y = 0; y < height; ++y ) {
+! 	VIO_Colour col = get_colour_code( &ccd, double(y) / double(height-1) );
+  	int r = get_Colour_r(col);
+  	int g = get_Colour_g(col);
+  	int b = get_Colour_b(col);
+diff -crB bicInventor-0.3.1.orig/lib/bicInventor.h bicInventor-0.3.1/lib/bicInventor.h
+*** bicInventor-0.3.1.orig/lib/bicInventor.h	2014-10-04 21:32:40.461298667 -0400
+--- bicInventor-0.3.1/lib/bicInventor.h	2014-10-04 22:00:44.741255131 -0400
+***************
+*** 1,6 ****
+--- 1,9 ----
+  #ifndef BICINVENTOR_H      // -*- C++ -*-
+  #define BICINVENTOR_H
+  
++ #include <minc2.h>
++ #include <minc.h>
++ 
+  extern "C" {
+  #   include <bicpl.h>
+  #   include <bicpl/colour_coding.h>
