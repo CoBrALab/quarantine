@@ -1,0 +1,12 @@
+*** Coin3D-quarter-3dc3433032c9/src/Quarter/Quarter.cpp.txt	2014-10-04 19:22:02.005501276 -0400
+--- Coin3D-quarter-3dc3433032c9/src/Quarter/Quarter.cpp	2014-10-04 19:27:21.669493014 -0400
+***************
+*** 129,134 ****
+--- 129,135 ----
+  #include <Inventor/SoInteraction.h>
+  #include <Quarter/Quarter.h>
+  #include "SensorManager.h"
++ #include <stdio.h>
+  
+  #include "QuarterP.h"
+  
