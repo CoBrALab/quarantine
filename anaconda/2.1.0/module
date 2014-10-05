@@ -1,0 +1,14 @@
+#%Module1.0#####################################################################
+
+
+module-whatis "adds anaconda 2.1.0 (python 2.7.8-1) to your user environment" 
+
+# avoid conflict with other python modules
+conflict python
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+set           basepath          ${quarantine_path}/anaconda/2.1.0/build
+
+
+prepend-path PATH ${basepath}/bin
