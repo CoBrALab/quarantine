@@ -55,7 +55,7 @@ qmake \
   HDF5DIR=$BUILDDIR \
   brain-view2.pro
 make
-cp brain-view2 $MINCTOOLDIR/bin
+cp brain-view2 $BUILDDIR/bin
 )
 
 echo On compute node: 
