@@ -1,0 +1,7 @@
+#Needs pyro pyro4 networkx pytest installed in anaconda (via pip or conda)
+
+wget https://github.com/mfriedel/pydpiper/archive/v1.7.tar.gz
+tar -xzf v1.7.tar.gz
+module load anaconda/2.1.0
+python setup.py install --prefix ../../build
+
