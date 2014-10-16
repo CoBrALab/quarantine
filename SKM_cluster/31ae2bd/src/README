@@ -1,0 +1,8 @@
+Requires Rpy2 in python
+conda config --add channels r 
+conda install rpy2
+
+Note: this installs R *into* anaconda so whatever version you do this in will conflict with R
+
+git clone https://github.com/jelman/SKM_cluster.git
+Unpack and copy skm_cluster.py and tools.py->skm_tools.py to build/bin
