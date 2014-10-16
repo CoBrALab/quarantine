@@ -1,0 +1,2 @@
+wget http://download.bpipe.org/versions/bpipe-0.9.8.6_rc2.tar.gz
+tar -xzf bpipe-0.9.8.6_rc2.tar.gz -C ../build
