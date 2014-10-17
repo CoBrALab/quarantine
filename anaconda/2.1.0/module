@@ -5,6 +5,7 @@ module-whatis "adds anaconda 2.1.0 (python 2.7.8-1) to your user environment"
 
 # avoid conflict with other python modules
 conflict python
+conflict anaconda
 
 set quarantine_path  $::env(QUARANTINE_PATH)
 
