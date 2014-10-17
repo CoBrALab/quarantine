@@ -1,0 +1,5 @@
+download
+tar -xzf
+perl Makefile.pl PREFIX=../../build
+make
+make install
