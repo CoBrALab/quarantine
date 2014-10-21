@@ -1,0 +1,84 @@
+diff --git a/cmake-modules/BuildFFTW3F.cmake b/cmake-modules/BuildFFTW3F.cmake
+index c4fbd6e..57f085f 100644
+--- a/cmake-modules/BuildFFTW3F.cmake
++++ b/cmake-modules/BuildFFTW3F.cmake
+@@ -1,6 +1,6 @@
+ macro(build_fftw3f install_prefix staging_prefix)
+ 
+-  SET(FFTW3F_CONFIG --enable-sse --enable-sse2  --with-pic --disable-shared --enable-threads --disable-fortran --enable-single --enable-float)
++  SET(FFTW3F_CONFIG --enable-sse --enable-sse2  --with-pic --enable-threads --disable-fortran --enable-single --enable-float)
+   
+   IF(NOT APPLE)
+     LIST(APPEND FFTW3F_CONFIG --enable-avx )
+diff --git a/cmake-modules/BuildGSL.cmake b/cmake-modules/BuildGSL.cmake
+index 3a7b9cd..b40ed19 100644
+--- a/cmake-modules/BuildGSL.cmake
++++ b/cmake-modules/BuildGSL.cmake
+@@ -8,7 +8,7 @@ ExternalProject_Add(GSL
+         INSTALL_DIR     "${CMAKE_BINARY_DIR}/external"
+         BUILD_COMMAND   make 
+         INSTALL_COMMAND make DESTDIR=${CMAKE_BINARY_DIR}/external install 
+-        CONFIGURE_COMMAND  ./configure --prefix=${install_prefix} --with-pic --disable-shared --enable-static CC=${CMAKE_C_COMPILER} CXX=${CMAKE_CXX_COMPILER} CFLAGS=${CMAKE_C_FLAGS} LDFLAGS=${CMAKE_MODULE_LINKER_FLAGS} CXXFLAGS=${CMAKE_CXX_FLAGS}
++        CONFIGURE_COMMAND  ./configure --prefix=${install_prefix} --with-pic --enable-static CC=${CMAKE_C_COMPILER} CXX=${CMAKE_CXX_COMPILER} CFLAGS=${CMAKE_C_FLAGS} LDFLAGS=${CMAKE_MODULE_LINKER_FLAGS} CXXFLAGS=${CMAKE_CXX_FLAGS}
+ #        INSTALL_DIR ${CMAKE_CURRENT_BINARY_DIR}/external
+       )
+ 
+@@ -18,4 +18,4 @@ SET(GSL_CBLAS_LIBRARY ${staging_prefix}/${install_prefix}/lib/libgslcblas.a )
+ SET(GSL_FOUND ON)
+ 
+ endmacro(build_gsl)
+-  
+\ No newline at end of file
++  
+diff --git a/cmake-modules/BuildHDF5.cmake b/cmake-modules/BuildHDF5.cmake
+index ebcff0b..950662d 100644
+--- a/cmake-modules/BuildHDF5.cmake
++++ b/cmake-modules/BuildHDF5.cmake
+@@ -10,7 +10,7 @@ ExternalProject_Add(HDF5
+   INSTALL_DIR     "${CMAKE_BINARY_DIR}/external"
+   BUILD_COMMAND   make 
+   INSTALL_COMMAND make DESTDIR=${CMAKE_BINARY_DIR}/external install 
+-  CONFIGURE_COMMAND  ./configure --prefix=${install_prefix} --with-zlib=${zlib_include_dir},${zlib_library_dir} --with-pic --disable-shared --enable-cxx --disable-f77 --disable-f90 --disable-examples --disable-hl --disable-docs --libdir=${install_prefix}/lib${LIB_SUFFIX} CC=${CMAKE_C_COMPILER} CXX=${CMAKE_CXX_COMPILER} CFLAGS=${CMAKE_C_FLAGS} LDFLAGS=${CMAKE_MODULE_LINKER_FLAGS} CXXFLAGS=${CMAKE_CXX_FLAGS}
++  CONFIGURE_COMMAND  ./configure --prefix=${install_prefix} --with-zlib=${zlib_include_dir},${zlib_library_dir} --with-pic --enable-cxx --disable-f77 --disable-f90 --disable-examples --disable-hl --disable-docs --libdir=${install_prefix}/lib${LIB_SUFFIX} CC=${CMAKE_C_COMPILER} CXX=${CMAKE_CXX_COMPILER} CFLAGS=${CMAKE_C_FLAGS} LDFLAGS=${CMAKE_MODULE_LINKER_FLAGS} CXXFLAGS=${CMAKE_CXX_FLAGS}
+ #  INSTALL_DIR ${CMAKE_CURRENT_BINARY_DIR}/external
+ )
+ 
+diff --git a/cmake-modules/BuildNETCDF.cmake b/cmake-modules/BuildNETCDF.cmake
+index 9b5b686..0aa196a 100644
+--- a/cmake-modules/BuildNETCDF.cmake
++++ b/cmake-modules/BuildNETCDF.cmake
+@@ -8,7 +8,7 @@ ExternalProject_Add(NETCDF
+   INSTALL_DIR     "${staging_prefix}"
+   BUILD_COMMAND   make 
+   INSTALL_COMMAND make DESTDIR=${staging_prefix} install 
+-  CONFIGURE_COMMAND ./configure --prefix=${install_prefix} --with-pic --disable-doxygen --disable-hdf4 --disable-netcdf-4 --disable-shared --disable-dap  --libdir=${install_prefix}/lib${LIB_SUFFIX} CC=${CMAKE_C_COMPILER} CXX=${CMAKE_CXX_COMPILER} CFLAGS=${CMAKE_C_FLAGS} LDFLAGS=${CMAKE_MODULE_LINKER_FLAGS} CXXFLAGS=${CMAKE_CXX_FLAGS}
++  CONFIGURE_COMMAND ./configure --prefix=${install_prefix} --with-pic --disable-doxygen --disable-hdf4 --disable-netcdf-4 --disable-dap --libdir=${install_prefix}/lib${LIB_SUFFIX} CC=${CMAKE_C_COMPILER} CXX=${CMAKE_CXX_COMPILER} CFLAGS=${CMAKE_C_FLAGS} LDFLAGS=${CMAKE_MODULE_LINKER_FLAGS} CXXFLAGS=${CMAKE_CXX_FLAGS}
+ #  INSTALL_DIR ${CMAKE_CURRENT_BINARY_DIR}/external
+ )
+ 
+diff --git a/cmake-modules/BuildPCRE.cmake b/cmake-modules/BuildPCRE.cmake
+index f2505ed..414efec 100644
+--- a/cmake-modules/BuildPCRE.cmake
++++ b/cmake-modules/BuildPCRE.cmake
+@@ -8,7 +8,7 @@ ExternalProject_Add(PCRE
+   INSTALL_DIR     "${staging_prefix}"
+   BUILD_COMMAND   make 
+   INSTALL_COMMAND make DESTDIR=${staging_prefix} install 
+-  CONFIGURE_COMMAND  ./configure --prefix=${install_prefix} --with-pic --disable-shared --enable-cpp CC=${CMAKE_C_COMPILER} CXX=${CMAKE_CXX_COMPILER} CFLAGS=${CMAKE_C_FLAGS} LDFLAGS=${CMAKE_MODULE_LINKER_FLAGS} CXXFLAGS=${CMAKE_CXX_FLAGS}
++  CONFIGURE_COMMAND  ./configure --prefix=${install_prefix} --with-pic --enable-cpp CC=${CMAKE_C_COMPILER} CXX=${CMAKE_CXX_COMPILER} CFLAGS=${CMAKE_C_FLAGS} LDFLAGS=${CMAKE_MODULE_LINKER_FLAGS} CXXFLAGS=${CMAKE_CXX_FLAGS}
+ )
+ 
+ SET(PCRE_INCLUDE_DIR  ${staging_prefix}/${install_prefix}/include )
+diff --git a/cmake-modules/BuildPCREPP.cmake b/cmake-modules/BuildPCREPP.cmake
+index ab80a28..eadc2a5 100644
+--- a/cmake-modules/BuildPCREPP.cmake
++++ b/cmake-modules/BuildPCREPP.cmake
+@@ -9,7 +9,7 @@ ExternalProject_Add(PCREPP
+   UPDATE_COMMAND  autoreconf -i
+   BUILD_COMMAND   make 
+   INSTALL_COMMAND make DESTDIR=${staging_prefix} install 
+-  CONFIGURE_COMMAND CFLAGS="${CMAKE_C_FLAGS}" LDFLAGS="${CMAKE_MODULE_LINKER_FLAGS}" CXXFLAGS="${CMAKE_CXX_FLAGS}"  CC=${CMAKE_C_COMPILER} CXX=${CMAKE_CXX_COMPILER}  ./configure --prefix=/ --with-pic --disable-shared --with-pcre-include=${pcre_include} --with-pcre-lib=${pcre_lib} --docdir=${CMAKE_BINARY_DIR}/dummy
++  CONFIGURE_COMMAND CFLAGS="${CMAKE_C_FLAGS}" LDFLAGS="${CMAKE_MODULE_LINKER_FLAGS}" CXXFLAGS="${CMAKE_CXX_FLAGS}"  CC=${CMAKE_C_COMPILER} CXX=${CMAKE_CXX_COMPILER}  ./configure --prefix=/ --with-pic --with-pcre-include=${pcre_include} --with-pcre-lib=${pcre_lib} --docdir=${CMAKE_BINARY_DIR}/dummy
+ )
+ 
+ SET(PCREPP_INCLUDE_DIR ${staging_prefix}/include )
