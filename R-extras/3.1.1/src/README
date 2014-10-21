@@ -2,7 +2,7 @@
 2. Run R, then run:
   
     packages = c("car","XML","rms","ggplot2","reshape2","tidyr","dplyr",
-      "lubridate","sandwich","GenABEL")
+      "lubridate","sandwich","GenABEL", "sparcl")
     
     install.packages(packages,lib="/opt/quarantine/R-extras/3.1.1/build")
 
