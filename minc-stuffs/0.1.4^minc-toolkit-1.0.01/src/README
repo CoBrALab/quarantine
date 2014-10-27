@@ -1,0 +1,8 @@
+download, untar
+
+./autogen.sh
+./configure --prefix=/opt/quarantine/minc-stuffs/0.1.4^minc-toolkit-1.0.01/build --with-build-path=/opt/quarantine/minc-toolkit/1.0.01/build/
+make
+make install
+
+python setup.py install --prefix=/opt/quarantine/minc-stuffs/0.1.4^minc-toolkit-1.0.01/build
