@@ -1,15 +1,17 @@
 #%Module1.0#####################################################################
 
 
-module-whatis "adds pydpiper v1.7 to your user environment" 
+module-whatis "adds pydpiper v1.9 to your user environment" 
 
 # avoid conflict with other python modules
 prereq anaconda/2.1.0
 prereq pyminc
+prereq minc-stuffs
+prereq minc-toolkit
 
 set quarantine_path  $::env(QUARANTINE_PATH)
 
-set           basepath          ${quarantine_path}/pydpiper/1.7/build
+set           basepath          ${quarantine_path}/pydpiper/1.10/build
 
 
 prepend-path PATH ${basepath}/bin
