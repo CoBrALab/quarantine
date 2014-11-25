@@ -1,0 +1,8 @@
+#%Module1.0#####################################################################
+
+module-whatis   "adds bpipe to your environment"
+
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+set           basepath          ${quarantine_path}/bpipe/0.9.8.6/build
+prepend-path  PATH              ${basepath}/bpipe-0.9.8.6/bin

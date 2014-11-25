@@ -1,0 +1,2 @@
+wget https://github.com/ssadedin/bpipe/releases/download/0.9.8.6/bpipe-0.9.8.6.tar.gz
+tar -xzf bpipe-0.9.8.6.tar.gz -C ../build
