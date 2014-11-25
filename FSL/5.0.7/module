@@ -4,11 +4,11 @@ module-whatis   "adds FSL 5.0.7 to your environment"
 
 set  quarantine_path  $::env(QUARANTINE_PATH)
 
-set  basepath  ${quarantine_path}/FSL/5.0.7/build
-set  fsldir    ${basepath}/usr/share/fsl/5.0
+set  basepath  ${quarantine_path}/FSL/5.0.7/build/fsl
+set  fsldir    ${quarantine_path}/FSL/5.0.7/build/fsl
 
-prepend-path  PATH	        ${basepath}/usr/lib/fsl/5.0
-prepend-path  LD_LIBRARY_PATH   ${basepath}/usr/lib/fsl/5.0
+prepend-path  PATH	        ${basepath}/bin
+prepend-path  LD_LIBRARY_PATH   ${basepath}/lib
 
 setenv  FSLDIR               ${fsldir}
 setenv  POSSUMDIR            ${fsldir}
