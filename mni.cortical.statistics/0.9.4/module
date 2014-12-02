@@ -6,6 +6,6 @@ set quarantine_path  $::env(QUARANTINE_PATH)
 
 prereq R/3.1.1
 
-set basepath     ${quarantine_path}/mni_cortical_statistics/0.9.4/build
+set basepath     ${quarantine_path}/mni.cortical.statistics/0.9.4/build
 
 prepend-path     R_LIBS_USER      ${basepath}
