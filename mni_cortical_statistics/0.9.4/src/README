@@ -1,0 +1,5 @@
+Download from http://packages.bic.mni.mcgill.ca/tgz/mni_cortical_statistics-0.9.4.tar.gz
+tar -xzf mni_cortical_statistics-0.9.4.tar.gz
+echo 'exportPattern( "." )' > mni_cortical_statistics-0.9.4/NAMESPACE
+tar -czf mni_cortical_statistics-0.9.4.tar.gz mni_cortical_statistics-0.9.4
+R -e 'install.packages("mni_cortical_statistics-0.9.4.tar.gz",lib="/opt/quarantine/mni_cortical_statistics/0.9.4/build")'

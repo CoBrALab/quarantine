@@ -1,0 +1,11 @@
+#%Module1.0#####################################################################
+
+module-whatis   "adds mni.cortical.thickness R package your environment"
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+prereq R/3.1.1
+
+set basepath     ${quarantine_path}/mni.cortical.thickness/0.9.4/build
+
+prepend-path     R_LIBS_USER      ${basepath}
