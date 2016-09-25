@@ -1,0 +1,28 @@
+#%Module1.0#####################################################################
+
+module-whatis   adds minc-tookit quarantine to your environment
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+conflict minc-toolkit
+conflict CIVET
+
+set           basepath          ${quarantine_path}/minc-toolkit/git/build
+prepend-path  PATH              ${basepath}/bin
+prepend-path  PATH              ${basepath}/pipeline
+prepend-path  PERL5LIB          ${basepath}/perl
+prepend-path  PERL5LIB          ${basepath}/pipeline
+prepend-path  LD_LIBRARY_PATH   ${basepath}/lib
+prepend-path  LD_LIBRARY_PATH   ${basepath}/lib/InsightToolkit
+prepend-path  PYTHONPATH        ${basepath}/python
+prepend-path  PYTHONPATH        ${basepath}/python-extras
+prepend-path  MANPATH           ${basepath}/man
+prepend-path  MANPATH           ${basepath}/share/man
+prepend-path PYTHONPATH ${basepath}/lib/python2.7/site-packages
+
+setenv MNI_DATAPATH             ${basepath}/share
+setenv MINC_FORCE_V2            1
+setenv MINC_COMPRESS            9
+setenv MINC_TOOLKIT_VERSION     "1.9.11-20160202"
+setenv VOLUME_CACHE_THRESHOLD   "-1"
+setenv ANTSPATH                 ${basepath}/bin

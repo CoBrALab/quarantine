@@ -1,0 +1,12 @@
+#%Module1.0#####################################################################
+
+module-whatis   "adds Rstudio to your environment"
+
+prereq R
+conflict rstudio
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+set basepath     ${quarantine_path}/rstudio/0.99.467/build/rstudio-0.99.467
+
+prepend-path     PATH                       ${basepath}/bin

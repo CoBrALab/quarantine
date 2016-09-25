@@ -1,0 +1,12 @@
+#%Module1.0#####################################################################
+
+module-whatis   "adds ANTs quarantine to your environment"
+
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+set           basepath          ${quarantine_path}/ANTs/2.1.0/build
+prepend-path  PATH              ${basepath}/bin
+prepend-path  LD_LIBRARY_PATH   ${basepath}/lib
+
+setenv ANTSPATH             ${basepath}/bin/

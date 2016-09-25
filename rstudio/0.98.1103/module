@@ -1,0 +1,12 @@
+#%Module1.0#####################################################################
+
+module-whatis   "adds R studio 0.98.1049 to your environment"
+
+prereq R
+conflict rstudio
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+set basepath     ${quarantine_path}/rstudio/0.98.1103/build/rstudio-0.98.1103
+
+prepend-path     PATH                       ${basepath}/bin

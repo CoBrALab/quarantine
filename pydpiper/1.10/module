@@ -8,6 +8,7 @@ prereq anaconda/2.1.0
 prereq pyminc
 prereq minc-stuffs
 prereq minc-toolkit
+prereq octave
 
 set quarantine_path  $::env(QUARANTINE_PATH)
 

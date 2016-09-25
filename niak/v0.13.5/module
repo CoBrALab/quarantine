@@ -1,0 +1,15 @@
+#%Module1.0#####################################################################
+
+module-whatis   "adds niak to your environment"
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+prereq matlab/R2012a octave
+prereq minc-toolkit
+conflict niak
+
+set basepath     ${quarantine_path}/niak/v0.13.5
+
+
+prepend-path MATLABPATH ${basepath}/build/niak-v0.13.5
+setenv OCTAVE_SITE_INITFILE ${basepath}/build/niak-v0.13.5/octaverc

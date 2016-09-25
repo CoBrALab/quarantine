@@ -1,0 +1,11 @@
+#%Module1.0#####################################################################
+
+module-whatis   "adds PLINK-201502 to your environment"
+
+conflict PLINK
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+set basepath  ${quarantine_path}/PLINK/201502/build
+
+prepend-path  PATH             ${basepath}

@@ -1,0 +1,12 @@
+#%Module1.0#####################################################################
+
+module-whatis   "adds fmristat to your environment"
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+prereq matlab
+conflict fmristat
+
+set basepath     ${quarantine_path}/fmristat/2006.06.06/build
+
+prepend-path MATLABPATH ${basepath}

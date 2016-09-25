@@ -1,0 +1,12 @@
+#%Module1.0#####################################################################
+
+module-whatis   "adds MVGC to your environment"
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+prereq matlab
+conflict MVGS
+
+set basepath     ${quarantine_path}/MVGC/1.0/build
+
+prepend-path MATLABPATH ${basepath}/mvgc_v1.0

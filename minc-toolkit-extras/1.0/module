@@ -11,3 +11,5 @@ set           basepath          ${quarantine_path}/minc-toolkit-extras/1.0/build
 
 
 prepend-path PATH ${basepath}
+prepend-path  PERL5LIB          ${basepath}/DICOM
+prepend-path  PERL5LIB          ${basepath}

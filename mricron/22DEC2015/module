@@ -1,0 +1,9 @@
+#%Module1.0#####################################################################
+
+module-whatis   "adds mricron to your environment"
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+set basepath  ${quarantine_path}/mricron/22DEC2015/build
+
+prepend-path  PATH             ${basepath}/mricron_lx

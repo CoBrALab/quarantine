@@ -1,0 +1,9 @@
+#%Module1.0#####################################################################
+
+module-whatis   "adds paravision to your environment"
+
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+set basepath  ${quarantine_path}/paravision/5.0.0/build
+prepend-path  PATH             ${basepath}/ParaView-5.0.0-Qt4-OpenGL2-MPI-Linux-64bit/bin

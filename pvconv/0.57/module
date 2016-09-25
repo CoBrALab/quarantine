@@ -4,7 +4,9 @@ module-whatis   "adds pvconv.pl 0.57 to your environment"
 
 set quarantine_path  $::env(QUARANTINE_PATH)
 
+prereq minc-toolkit
 
 set basepath     ${quarantine_path}/pvconv/0.57/build
 
 prepend-path     PATH                       ${basepath}/bin
+prepend-path     PERL5LIB                   ${basepath}/share/perl/5.18.2

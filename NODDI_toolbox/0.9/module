@@ -1,0 +1,18 @@
+#%Module1.0#####################################################################
+
+module-whatis   "adds NODDI_toolbox to your environment"
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+prereq matlab
+prereq niftimatlib
+
+set basepath     ${quarantine_path}/NODDI_toolbox/0.9
+
+prepend-path MATLABPATH ${basepath}/build/NODDI_toolbox_v0.9
+prepend-path MATLABPATH ${basepath}/build/NODDI_toolbox_v0.9/ParforProgMonv2
+prepend-path MATLABPATH ${basepath}/build/NODDI_toolbox_v0.9/ParforProgMonv2/java
+prepend-path MATLABPATH ${basepath}/build/NODDI_toolbox_v0.9/models
+prepend-path MATLABPATH ${basepath}/build/NODDI_toolbox_v0.9/models/watson
+prepend-path MATLABPATH ${basepath}/build/NODDI_toolbox_v0.9/fitting
+

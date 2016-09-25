@@ -1,10 +1,23 @@
 #%Module1.0#####################################################################
 
+proc ModulesHelp { } {
+    puts stderr "   The SGE-extras module is now disabled"
+    puts stderr "   Please use the qbatch module"
+}
+
+set curMod [module-info name]
+if { [ module-info mode load ] } {
+    puts stderr "Note: '$curMod' is disabled, please use module qbatch"
+}
+
+break
+
+
 module-whatis   "adds SGE extra helpful scripts to your environment"
 
-set quarantine_path  $::env(QUARANTINE_PATH)
+#set quarantine_path  $::env(QUARANTINE_PATH)
 
 
-set basepath ${quarantine_path}/SGE-extras/1.0/build
+#set basepath ${quarantine_path}/SGE-extras/1.0/build
 
-prepend-path PATH ${basepath}/bin
+#prepend-path PATH ${basepath}/bin

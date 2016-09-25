@@ -1,0 +1,13 @@
+#%Module1.0#####################################################################
+
+module-whatis   "adds PLS to your environment"
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+prereq matlab/R2012a matlab/R2014a
+conflict PLS
+
+set basepath     ${quarantine_path}/PLS/6.15/build
+
+prepend-path MATLABPATH ${basepath}/plscmd
+prepend-path MATLABPATH ${basepath}/plsgui

@@ -1,0 +1,10 @@
+#%Module1.0#####################################################################
+
+module-whatis   "adds GTOOL 0.7.5 to your environment"
+
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+set basepath  ${quarantine_path}/GTOOL/0.7.5/build
+
+prepend-path  PATH             ${basepath}

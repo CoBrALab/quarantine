@@ -8,4 +8,4 @@ prereq R/3.1.1
 
 set basepath     ${quarantine_path}/R-extras/3.1.1/build
 
-prepend-path     R_LIBS_USER      ${basepath}
+prepend-path     R_LIBS      ${basepath}

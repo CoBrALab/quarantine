@@ -1,0 +1,14 @@
+#%Module1.0#####################################################################
+
+module-whatis   "adds MIDER to your environment"
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+prereq matlab/R2012a octave
+conflict MIDER
+
+set basepath     ${quarantine_path}/MIDER/v2
+
+
+prepend-path MATLABPATH ${basepath}/build/MIDERv2
+setenv OCTAVE_SITE_INITFILE ${basepath}/build/MIDERv2/octaverc

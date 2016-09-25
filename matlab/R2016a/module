@@ -1,0 +1,12 @@
+#%Module1.0#####################################################################
+
+
+module-whatis "adds MATLAB R2016a to your environemnt" 
+
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+set           basepath          ${quarantine_path}/matlab/R2016a/build
+
+
+prepend-path PATH ${basepath}/bin

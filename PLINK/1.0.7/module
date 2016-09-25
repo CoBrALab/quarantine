@@ -1,0 +1,11 @@
+#%Module1.0#####################################################################
+
+module-whatis   "adds PLINK-1.0.7 to your environment"
+
+conflict PLINK
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+set basepath  ${quarantine_path}/PLINK/1.0.7/build
+
+prepend-path  PATH             ${basepath}/plink-1.07-x86_64

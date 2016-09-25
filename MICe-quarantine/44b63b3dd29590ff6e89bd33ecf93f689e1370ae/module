@@ -1,0 +1,26 @@
+#%Module1.0#####################################################################
+
+module-whatis   adds minc-tools chihiro quarantine to your environment
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+conflict minc-tools
+conflict minc-toolkit
+
+module-trace on
+module-log verb stderr
+
+set           basepath         ${quarantine_path}/MICe-quarantine/44b63b3dd29590ff6e89bd33ecf93f689e1370ae/build
+prepend-path  PATH             ${basepath}/bin
+prepend-path  PERL5LIB         ${basepath}/perl
+prepend-path  LD_LIBRARY_PATH  ${basepath}/lib
+prepend-path  LD_LIBRARY_PATH  ${basepath}/lib/InsightToolkit
+prepend-path  PYTHONPATH       ${basepath}/python
+prepend-path  PYTHONPATH       ${basepath}/python-extras
+prepend-path  MANPATH          ${basepath}/man
+prepend-path  MANPATH          ${basepath}/share/man
+
+setenv        MINC_FORCE_V2    1
+setenv        MINC_COMPRESS    9
+setenv        LC_ALL           C
+

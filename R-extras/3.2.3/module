@@ -1,0 +1,11 @@
+#%Module1.0#####################################################################
+
+module-whatis   "adds general R 3.2.3 libraries your environment"
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+prereq MRO/3.2.3
+
+set basepath     ${quarantine_path}/R-extras/3.2.3/build
+
+prepend-path     R_LIBS      ${basepath}

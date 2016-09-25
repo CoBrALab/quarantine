@@ -1,0 +1,11 @@
+#%Module1.0#####################################################################
+
+module-whatis   "adds braingl to your environment"
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+
+set basepath     ${quarantine_path}/braingl/0.0-1/build
+
+prepend-path     PATH                       ${basepath}/usr/bin
+prepend-path  LD_LIBRARY_PATH   ${basepath}/usr/bin

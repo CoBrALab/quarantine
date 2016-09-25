@@ -1,0 +1,12 @@
+#%Module1.0#####################################################################
+
+
+module-whatis "adds MIPAV 6.0.1 to your environment" 
+
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+set           basepath          ${quarantine_path}/MIPAV/6.0.1/build
+
+
+prepend-path PATH ${basepath}

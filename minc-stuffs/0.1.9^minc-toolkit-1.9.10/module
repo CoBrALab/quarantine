@@ -1,0 +1,17 @@
+#%Module1.0#####################################################################
+
+
+module-whatis "adds minc-stuffs to your user environment" 
+
+# avoid conflict with other python modules
+prereq anaconda
+prereq minc-toolkit/1.9.10 minc-toolkit/1.9.10.1 minc-toolkit/1.9.11
+prereq pyminc
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+set           basepath          ${quarantine_path}/minc-stuffs/0.1.9^minc-toolkit-1.9.10/build
+
+
+prepend-path PATH ${basepath}/bin
+prepend-path PYTHONPATH ${basepath}/lib/python2.7/site-packages

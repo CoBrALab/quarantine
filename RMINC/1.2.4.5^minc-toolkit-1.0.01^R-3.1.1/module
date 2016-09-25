@@ -10,4 +10,4 @@ prereq minc-stuffs
 
 set basepath  ${quarantine_path}/RMINC/1.2.4.5^minc-toolkit-1.0.01^R-3.1.1/build
 
-prepend-path  R_LIBS_USER   ${basepath}
+prepend-path  R_LIBS   ${basepath}

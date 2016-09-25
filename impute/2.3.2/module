@@ -1,0 +1,10 @@
+#%Module1.0#####################################################################
+
+module-whatis   "adds impute 2.3.2 to your environment"
+
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+set basepath  ${quarantine_path}/impute/2.3.2/build
+
+prepend-path  PATH             ${basepath}/impute_v2.3.2_x86_64_static

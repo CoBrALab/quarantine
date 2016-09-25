@@ -1,0 +1,18 @@
+#%Module1.0#####################################################################
+
+module-whatis   "adds qbatch to your environment"
+
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+set basepath  ${quarantine_path}/qbatch/1.0rc1/build
+
+prepend-path  PATH             ${basepath}
+
+setenv QBATCH_PPN 1
+setenv QBATCH_NODES 1
+setenv QBATCH_SYSTEM "sge"
+setenv QBATCH_CORES 1
+setenv QBATCH_PE smp
+setenv QBATCH_MEMVARS h_mem
+setenv QBATCH_MEM 0

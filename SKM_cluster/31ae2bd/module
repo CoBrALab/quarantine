@@ -5,6 +5,8 @@ module-whatis   "adds skm_cluster to your environment"
 set quarantine_path  $::env(QUARANTINE_PATH)
 
 prereq anaconda/2.1.0
+prereq R
+prereq R-extras
 
 set basepath     ${quarantine_path}/SKM_cluster/31ae2bd/build
 

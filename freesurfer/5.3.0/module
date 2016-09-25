@@ -7,7 +7,7 @@ set quarantine_path  $::env(QUARANTINE_PATH)
 conflict freesurfer
 conflict minc-tools
 conflict minc-toolkit
-confict CIVET
+conflict CIVET
 
 set basepath     ${quarantine_path}/freesurfer/5.3.0/build
 
