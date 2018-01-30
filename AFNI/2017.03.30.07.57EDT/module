@@ -1,0 +1,13 @@
+#%Module1.0#####################################################################
+
+
+module-whatis "adds AFNI to your environment"
+
+conflict AFNI
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+set           basepath          ${quarantine_path}/AFNI/2017.03.30.07.57EDT/build/linux_openmp_64
+
+
+prepend-path PATH ${basepath}

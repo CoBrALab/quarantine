@@ -1,0 +1,14 @@
+#%Module1.0#####################################################################
+
+module-whatis   "adds RMINC 1.4.2.0 to your environment"
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+prereq minc-toolkit/1.9.11
+prereq R/3.2.4
+prereq R-extras
+#prereq minc-stuffs
+
+set basepath  ${quarantine_path}/RMINC/1.4.3.0^minc-toolkit-1.9.11^R-3.2.4/build
+
+prepend-path  R_LIBS   ${basepath}

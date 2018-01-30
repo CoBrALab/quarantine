@@ -21,3 +21,8 @@ setenv MNI_DIR ${basepath}/mni
 
 prepend-path MATLABPATH ${basepath}/matlab
 prepend-path MATLABPATH ${basepath}/fsfast/toolbox
+
+prepend-path     PATH                       ${basepath}/lib
+prepend-path     PATH                       ${basepath}/mni/bin
+prepend-path        PERL5LIB               ${basepath}/mni/lib/perl5/5.8.5
+prepend-path     LD_LIBRARY_PATH            ${basepath}/mni/lib

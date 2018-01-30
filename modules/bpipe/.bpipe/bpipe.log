@@ -1,0 +1,4 @@
+bpipe.Runner	[1]	INFO	|1:11:37 Starting 
+bpipe.Runner	[1]	INFO	|1:11:37 OS: Linux (4.4.0-75-generic) Java: 1.7.0_131 Vendor: Oracle Corporation 
+bpipe.Runner	[1]	INFO	|1:11:37 Initializing plugins ... 
+bpipe.Config	[1]	INFO	|1:11:37 No plugins directory found: /opt/quarantine/modules/bpipe/.bpipe/plugins 

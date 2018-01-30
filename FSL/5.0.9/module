@@ -20,7 +20,7 @@ setenv FSLTCLSH             ${fsldir}/bin/fsltclsh
 setenv FSLWISH              ${fsldir}/bin/fslwish
 #setenv  FSLWISH              /usr/bin/wish
 setenv  FSLBROWSER           /etc/alternatives/x-www-browser
-setenv  FSLPARALLEL          1
+#setenv  FSLPARALLEL          0
 
 # Mail setup for gridengine jobs. See man qsub (-m option) for all possible
 # settings. By default no email is sent.

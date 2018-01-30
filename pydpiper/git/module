@@ -1,14 +1,14 @@
 #%Module1.0#####################################################################
 
 
-module-whatis "adds pydpiper git to your user environment" 
+module-whatis "adds pydpiper to your user environment" 
 
 # avoid conflict with other python modules
-prereq anaconda/2.1.0
+prereq anaconda/4.2.0-python3
 prereq pyminc
 prereq minc-stuffs
 prereq minc-toolkit
-prereq octave
+#prereq octave
 
 set quarantine_path  $::env(QUARANTINE_PATH)
 
@@ -16,4 +16,5 @@ set           basepath          ${quarantine_path}/pydpiper/git/build
 
 
 prepend-path PATH ${basepath}/bin
-prepend-path PYTHONPATH ${basepath}/lib/python2.7/site-packages
+prepend-path PYTHONPATH ${basepath}/lib/python3.5/site-packages/
+setenv PYDPIPER_CONFIG_FILE ${quarantine_path}/pydpiper/git/CIC.cfg

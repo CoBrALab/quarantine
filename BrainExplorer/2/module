@@ -1,0 +1,10 @@
+#%Module1.0#####################################################################
+
+module-whatis   "adds BrainExplorer to your environment"
+
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+set basepath  ${quarantine_path}/BrainExplorer/2/build
+prepend-path  PATH             ${basepath}/bin
+setenv WINEPREFIX ${basepath}

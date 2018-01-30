@@ -1,0 +1,32 @@
+#%Module1.0#####################################################################
+
+module-whatis   "adds freesurfer to your environment"
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+conflict freesurfer
+conflict minc-tools
+conflict minc-toolkit
+conflict CIVET
+
+set basepath     ${quarantine_path}/freesurfer/6.0/build/freesurfer
+
+
+prepend-path     PATH                       ${basepath}/bin
+prepend-path     PATH                       ${basepath}/mni/bin
+prepend-path     PATH                       ${basepath}/fsfast/bin
+prepend-path     PATH                       ${basepath}/tktools
+
+setenv FREESURFER_HOME ${basepath}
+setenv FSF_OUTPUT_FORMAT nii.gz
+setenv MNI_DIR ${basepath}/mni
+setenv FSFAST_HOME ${basepath}/fsfast
+setenv LOCAL_DIR ${basepath}/local
+setenv MNI_PERL5LIB ${basepath}/mni/share/perl5
+setenv MINC_BIN_DIR ${basepath}/mni/bin
+setenv PERL5LIB ${basepath}/mni/share/perl5
+setenv MINC_LIB_DIR ${basepath}/mni/lib
+setenv MNI_DATAPATH ${basepath}/mni/data
+
+prepend-path MATLABPATH ${basepath}/matlab
+prepend-path MATLABPATH ${basepath}/fsfast/toolbox

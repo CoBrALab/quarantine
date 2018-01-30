@@ -1,0 +1,9 @@
+#%Module1.0#####################################################################
+
+module-whatis   "adds mango to your environment"
+
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+set basepath  ${quarantine_path}/mango/4.0.1/build
+prepend-path  PATH             ${basepath}/Mango

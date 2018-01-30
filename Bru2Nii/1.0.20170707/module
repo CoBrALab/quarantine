@@ -1,0 +1,10 @@
+#%Module1.0#####################################################################
+
+module-whatis   "adds Bru2Nii to your environment"
+
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+set basepath  ${quarantine_path}/Bru2Nii/1.0.20170707/install
+
+prepend-path  PATH             ${basepath}

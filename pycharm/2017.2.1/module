@@ -1,0 +1,8 @@
+#%Module1.0#####################################################################
+
+module-whatis   "adds pycharm to your environment"
+
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+set           basepath          ${quarantine_path}/pycharm/2017.2.1/build
+prepend-path  PATH              ${basepath}/pycharm-community-2017.2.1/bin

@@ -1,0 +1,30 @@
+#%Module1.0#####################################################################
+
+module-whatis   "adds CIVET 2.1.0 to your environment"
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+conflict         minc-tools
+conflict	 minc-toolkit
+conflict	 CIVET
+
+if { $::env(QUARANTINE_ENV) eq "scinet" } { 
+  module load      gnu-parallel
+  module load      Xlibraries
+  module load      ImageMagick
+}
+
+set basepath     ${quarantine_path}/CIVET/2.1.0/build
+
+prepend-path     PATH                       ${basepath}/bin
+prepend-path     PATH                       ${basepath}/CIVET-2.1.0
+prepend-path     PATH                       ${basepath}/CIVET-2.1.0/progs
+prepend-path     LD_LIBRARY_PATH            ${basepath}/lib
+prepend-path     MNI_DATAPATH               ${basepath}/share
+prepend-path     PERL5LIB                   ${basepath}/perl
+prepend-path     PERL5LIB                   ${basepath}/lib/mni-models
+prepend-path     R_LIBS                     ${basepath}/R_LIBS
+setenv           VOLUME_CACHE_THRESHOLD     -1
+setenv           MINC_FORCE_V2              1
+setenv           MINC_COMPRESS              9
+setenv           CIVET_JOB_SCHEDULER        CIC

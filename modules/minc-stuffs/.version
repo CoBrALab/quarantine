@@ -1,2 +1,2 @@
 #%Module1.0
-set ModulesVersion "0.1.15a^minc-toolkit-1.9.11"
+set ModulesVersion "0.1.20^minc-toolkit-1.9.11"

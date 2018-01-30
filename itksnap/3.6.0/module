@@ -1,0 +1,9 @@
+#%Module1.0#####################################################################
+
+module-whatis   "adds itksnap to your environment"
+
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+set           basepath          ${quarantine_path}/itksnap/3.6.0/install
+prepend-path  PATH              ${basepath}/itksnap-3.6.0-20170401-Linux-x86_64/bin
+#prepend-path  LD_LIBRARY_PATH   ${basepath}/itksnap-3.2.0-20141023-Linux-x86_64/lib/snap-3.2.0

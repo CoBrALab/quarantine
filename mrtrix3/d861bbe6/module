@@ -1,0 +1,12 @@
+#%Module1.0#####################################################################
+
+module-whatis   adds mrtrix3 quarantine to your environment
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+conflict mrtrix3
+
+set           basepath          ${quarantine_path}/mrtrix3/d861bbe6/build
+prepend-path  PATH              ${basepath}/bin
+prepend-path  PATH              ${basepath}/scripts
+#prepend-path  LD_LIBRARY_PATH   ${basepath}/lib

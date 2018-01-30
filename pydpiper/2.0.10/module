@@ -1,0 +1,18 @@
+#%Module1.0#####################################################################
+
+module-whatis "adds pydpiper to your user environment" 
+
+conflict pydpiper
+prereq anaconda/5.0.1-python3
+prereq minc-toolkit/1.9.15
+prereq minc-stuffs/0.1.21^minc-toolkit-1.9.15
+prereq qbatch
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+set           basepath          ${quarantine_path}/pydpiper/2.0.10/install
+
+prepend-path PATH ${basepath}/bin
+prepend-path PYTHONPATH ${basepath}/lib/python3.6/site-packages/
+setenv PYDPIPER_CONFIG_FILE ${quarantine_path}/pydpiper/2.0.10/CIC.cfg
+
+puts stderr "If you want to use MAGeT.py, you must run \'export PYDPIPER_CONFIG_FILE=${quarantine_path}/pydpiper/2.0.10/CIC-maget.cfg\'"

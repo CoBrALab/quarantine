@@ -6,10 +6,11 @@ conflict minc-toolkit
 
 set quarantine_path  $::env(QUARANTINE_PATH)
 
-set           basepath          ${quarantine_path}/ANTs/git/build
+set           basepath          ${quarantine_path}/ANTs/git/install
 prepend-path  PATH              ${basepath}/bin
-prepend-path  PATH              ${basepath}/bin/Scripts
-prepend-path  LD_LIBRARY_PATH   ${basepath}/lib
+#prepend-path  PATH              ${basepath}/bin/Scripts
+#prepend-path  PATH              ${basepath}/Scripts
+#prepend-path  LD_LIBRARY_PATH   ${basepath}/lib
 
 setenv ANTSPATH             ${basepath}/bin/
 setenv MINC_FORCE_V2 1

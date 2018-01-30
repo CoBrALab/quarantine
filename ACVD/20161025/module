@@ -1,0 +1,10 @@
+#%Module1.0#####################################################################
+
+module-whatis   "adds ACVD to your quarantine to your environment"
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+set           basepath          ${quarantine_path}/ACVD/20161025/build
+prepend-path  PATH              ${basepath}/bin
+prepend-path  LD_LIBRARY_PATH   ${basepath}/lib
+

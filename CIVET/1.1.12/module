@@ -27,4 +27,4 @@ prepend-path     R_LIBS                     ${basepath}/R_LIBS
 setenv           VOLUME_CACHE_THRESHOLD     -1
 setenv           MINC_FORCE_V2              1
 setenv           MINC_COMPRESS              9
-setenv           CIVET_JOB_SCHEDULER        DEFAULT
+setenv           CIVET_JOB_SCHEDULER        CIC
