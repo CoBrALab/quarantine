@@ -1,0 +1,9 @@
+#%Module1.0#####################################################################
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+set basepath  ${quarantine_path}/java/8u171-32bit
+
+prepend-path  PATH             ${basepath}/install/jre1.8.0_171/bin
+setenv JAVA_HOME  ${basepath}/install/jre1.8.0_171
+

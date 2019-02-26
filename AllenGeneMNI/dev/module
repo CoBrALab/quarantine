@@ -1,0 +1,11 @@
+#%Module1.0#####################################################################
+
+prereq minc-toolkit
+prereq R
+#prereq R-extras
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+set basepath  ${quarantine_path}/AllenGeneMNI/dev
+
+prepend-path  PATH             ${basepath}/install

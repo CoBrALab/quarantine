@@ -1,0 +1,10 @@
+#%Module1.0#####################################################################
+
+module-whatis   "adds MRO accelerated R to your environment"
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+
+set basepath     ${quarantine_path}/R/3.5.1/install/opt/microsoft/ropen/3.5.1/lib64/R
+
+prepend-path     PATH                       ${basepath}/bin

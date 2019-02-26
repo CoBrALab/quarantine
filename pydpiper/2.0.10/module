@@ -4,8 +4,8 @@ module-whatis "adds pydpiper to your user environment"
 
 conflict pydpiper
 prereq anaconda/5.0.1-python3
-prereq minc-toolkit/1.9.15
-prereq minc-stuffs/0.1.21^minc-toolkit-1.9.15
+prereq minc-toolkit
+prereq minc-stuffs
 prereq qbatch
 
 set quarantine_path  $::env(QUARANTINE_PATH)

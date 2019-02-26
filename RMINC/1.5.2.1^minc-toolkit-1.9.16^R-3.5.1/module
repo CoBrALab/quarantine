@@ -4,9 +4,11 @@ module-whatis   "adds RMINC git to your environment"
 
 set quarantine_path  $::env(QUARANTINE_PATH)
 
-prereq minc-toolkit
-prereq R
+prereq minc-toolkit/1.9.16
+prereq R/3.5.1
+conflict R-extras
 
-set basepath  ${quarantine_path}/RMINC/git-develop/install
+set basepath  ${quarantine_path}/RMINC/1.5.2.1^minc-toolkit-1.9.16^R-3.5.1/install
 
 prepend-path  R_LIBS   ${basepath}
+setenv RMINC_BATCH_CONF ${basepath}/RMINC/parallel/sge_batchtools.R

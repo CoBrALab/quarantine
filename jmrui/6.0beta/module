@@ -1,0 +1,11 @@
+#%Module1.0#####################################################################
+
+prereq java/8u171-32bit
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+set basepath  ${quarantine_path}/jmrui/6.0beta
+
+prepend-path  PATH             ${basepath}/install/jmrui_v6.0beta/
+prepend-path LD_LIBRARY_PATH ${basepath}/install/jmrui_v6.0beta/g2c/usr/lib
+

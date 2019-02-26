@@ -1,0 +1,12 @@
+#%Module1.0#####################################################################
+
+module-whatis   "adds Rstudio to your environment"
+
+prereq R
+conflict rstudio
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+set basepath     ${quarantine_path}/rstudio-server/1.1.463/install
+
+prepend-path     PATH                       ${basepath}/usr/lib/rstudio-server/bin/

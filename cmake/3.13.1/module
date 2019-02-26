@@ -1,0 +1,9 @@
+#%Module1.0#####################################################################
+
+module-whatis   "adds cmake to your environment"
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+set basepath  ${quarantine_path}/cmake/3.13.1/install/cmake-3.13.1-Linux-x86_64
+
+prepend-path  PATH             ${basepath}/bin

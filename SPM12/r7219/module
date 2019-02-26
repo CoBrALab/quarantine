@@ -1,0 +1,12 @@
+#%Module1.0#####################################################################
+
+module-whatis   "adds SPM12 to your environment"
+
+set quarantine_path  $::env(QUARANTINE_PATH)
+
+prereq matlab/R2012a matlab/R2014a matlab/R2015aSP1 matlab/R2016a
+conflict SPM SPM12 SPM8
+
+set basepath     ${quarantine_path}/SPM12/r7219
+
+prepend-path MATLABPATH ${basepath}/install/spm12

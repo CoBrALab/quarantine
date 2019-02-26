@@ -6,7 +6,7 @@ module-whatis   "adds ANTs quarantine to your environment"
 
 set quarantine_path  $::env(QUARANTINE_PATH)
 
-set           basepath          ${quarantine_path}/ANTs/git/install
+set           basepath          ${quarantine_path}/ANTs/20190211/install
 prepend-path  PATH              ${basepath}/bin
 #prepend-path  PATH              ${basepath}/bin/Scripts
 #prepend-path  PATH              ${basepath}/Scripts
